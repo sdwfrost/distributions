@@ -14,7 +14,7 @@
 <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600' rel='stylesheet' type='text/css'/>
 
 <!-- CSS -->
-<title>Module README</title>
+<title>Module index</title>
 <style type="text/css" >
 /*
 Stylesheet for use with Docutils/rst2html.
@@ -1185,7 +1185,7 @@ function main() {
 <body onload="main()">
 <div class="document" id="documentId">
   <div class="container">
-    <h1 class="title">Module README</h1>
+    <h1 class="title">Module index</h1>
     
 <h1 id="distributions">distributions</h1><p>This repository comprises of</p>
 <ul class="simple"><li>Low level Nim bindings to <a class="reference external" href="http://github.com/sdwfrost/libRmath-nim">libRmath</a>, a local fork of libRmath patched by the Julia developers to use a faster random number generator.</li>
@@ -1196,10 +1196,10 @@ function main() {
 
 <h2 id="installation">Installation</h2><p><tt class="docutils literal"><span class="pre">distributions</span></tt> installs a shared library into <tt class="docutils literal"><span class="pre">$HOME/.nimble/lib</span></tt>; this needs to be created first, then added to the library search path. The package can then be installed using <a class="reference external" href="https://github.com/nim-lang/nimble">nimble</a> from a local directory.</p>
 <pre class = "listing">
-git clone http://github.com/sdwfrost/rmath.git
-cd rmath
+git clone http://github.com/sdwfrost/distributions.git
+cd distributions
 nimble install</pre>
-<h2 id="usage">Usage</h2><p>Low level usage:</p>
+<h2 id="usage">Usage</h2><p>Low level usage using the <tt class="docutils literal"><span class="pre">rmath</span></tt> module.</p>
 <pre class = "listing"><span class="Keyword">import</span> <span class="Identifier">random</span>
 <span class="Keyword">import</span> <span class="Identifier">rmath</span>
 
@@ -1210,7 +1210,7 @@ nimble install</pre>
 <span class="Identifier">echo</span> <span class="Identifier">x</span>
 
 <span class="Keyword">var</span> <span class="Identifier">y</span><span class="Operator">=</span><span class="Identifier">pchisq</span><span class="Punctuation">(</span><span class="FloatNumber">3.84</span><span class="Punctuation">,</span><span class="DecNumber">1</span><span class="Punctuation">,</span><span class="Identifier">true</span><span class="Punctuation">,</span><span class="Identifier">false</span><span class="Punctuation">)</span>
-<span class="Identifier">echo</span> <span class="Identifier">y</span></pre><p>High level usage.</p>
+<span class="Identifier">echo</span> <span class="Identifier">y</span></pre><p>High level usage using the <tt class="docutils literal"><span class="pre">distributions</span></tt> module.</p>
 <pre class = "listing"><span class="Keyword">import</span> <span class="Identifier">distributions</span>
 <span class="Keyword">var</span> <span class="Identifier">dn</span><span class="Operator">=</span><span class="Identifier">Normal</span><span class="Punctuation">(</span><span class="Identifier">mu</span><span class="Punctuation">:</span><span class="FloatNumber">0.0</span><span class="Punctuation">,</span><span class="Identifier">sig</span><span class="Punctuation">:</span><span class="FloatNumber">1.0</span><span class="Punctuation">)</span>
 <span class="Keyword">var</span> <span class="Identifier">dx</span><span class="Operator">=</span><span class="Identifier">rand</span><span class="Punctuation">(</span><span class="Identifier">dn</span><span class="Punctuation">)</span>
@@ -1223,7 +1223,7 @@ nimble tests</pre>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small>Made with Nim. Generated: 2016-08-11 11:23:04 UTC</small>
+        <small>Made with Nim. Generated: 2016-08-11 11:31:53 UTC</small>
       </div>
     </div>
   </div>

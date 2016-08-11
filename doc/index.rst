@@ -27,14 +27,14 @@ The package can then be installed using
 
 .. code:: sh
 
-    git clone http://github.com/sdwfrost/rmath.git
-    cd rmath
+    git clone http://github.com/sdwfrost/distributions.git
+    cd distributions
     nimble install
 
 Usage
 -----
 
-Low level usage:
+Low level usage using the ``rmath`` module.
 
 .. code:: nim
 
@@ -50,7 +50,7 @@ Low level usage:
     var y=pchisq(3.84,1,true,false)
     echo y
 
-High level usage.
+High level usage using the ``distributions`` module.
 
 .. code:: nim
 

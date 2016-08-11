@@ -14,14 +14,14 @@ You will need to ensure that the shared library (libRmath-nim.dylib, libRmath-ni
 `distributions` installs a shared library into `$HOME/.nimble/lib`; this needs to be created first, then added to the library search path. The package can then be installed using [nimble](https://github.com/nim-lang/nimble) from a local directory.
 
 ```sh
-git clone http://github.com/sdwfrost/rmath.git
-cd rmath
+git clone http://github.com/sdwfrost/distributions.git
+cd distributions
 nimble install
 ```
 
 ## Usage
 
-Low level usage:
+Low level usage using the `rmath` module.
 
 ```nim
 import random
@@ -37,7 +37,7 @@ var y=pchisq(3.84,1,true,false)
 echo y
 ```
 
-High level usage.
+High level usage using the `distributions` module.
 
 ```nim
 import distributions
