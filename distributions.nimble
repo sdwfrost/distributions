@@ -28,7 +28,7 @@ before install:
   else:
     const
       rmathlib = "libRmath-nim.so"
-  const libdir = "/Users/sdf22/" & ".nimble/" & "lib/"
+  const libdir = "~/" & ".nimble/" & "lib/"
   cpFile(thisDir() & "/" & "libRmath-nim/" & "src/" & rmathlib, libdir & rmathlib)
   rmDir("libRmath-nim")
 
