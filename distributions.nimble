@@ -10,7 +10,7 @@ srcDir        = "src"
 
 # Dependencies
 
-requires "nim >= 0.14.2", "nimbench"
+requires "nim >= 0.14.2", "nimbench", "math", "random"
 
 # Tasks
 

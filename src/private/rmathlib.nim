@@ -46,7 +46,7 @@ proc pgamma(a2: cdouble; a3: cdouble; a4: cdouble; a5: cint; a6: cint): cdouble 
     importc: "pgamma", dynlib: rmathlib.}
 proc qgamma(a2: cdouble; a3: cdouble; a4: cdouble; a5: cint; a6: cint): cdouble {.cdecl,
     importc: "qgamma", dynlib: rmathlib.}
-proc rgamma(a2: cdouble; a3: cdouble): cdouble {.cdecl, importc: "rgamma",
+proc Rf_rgamma(a2: cdouble; a3: cdouble): cdouble {.cdecl, importc: "rgamma",
     dynlib: rmathlib.}
 proc log1pmx(a2: cdouble): cdouble {.cdecl, importc: "log1pmx", dynlib: rmathlib.}
 proc log1pexp(a2: cdouble): cdouble {.cdecl, importc: "log1pexp", dynlib: rmathlib.}
@@ -139,7 +139,7 @@ proc pexp(a2: cdouble; a3: cdouble; a4: cint; a5: cint): cdouble {.cdecl, import
     dynlib: rmathlib.}
 proc qexp(a2: cdouble; a3: cdouble; a4: cint; a5: cint): cdouble {.cdecl, importc: "qexp",
     dynlib: rmathlib.}
-proc rexp(a2: cdouble): cdouble {.cdecl, importc: "rexp", dynlib: rmathlib.}
+proc Rf_rexp(a2: cdouble): cdouble {.cdecl, importc: "rexp", dynlib: rmathlib.}
 
 proc dgeom(a2: cdouble; a3: cdouble; a4: cint): cdouble {.cdecl, importc: "dgeom",
     dynlib: rmathlib.}
