@@ -37,7 +37,7 @@ proc punif(a2: cdouble; a3: cdouble; a4: cdouble; a5: cint; a6: cint): cdouble {
     importc: "punif", dynlib: rmathlib.}
 proc qunif(a2: cdouble; a3: cdouble; a4: cdouble; a5: cint; a6: cint): cdouble {.cdecl,
     importc: "qunif", dynlib: rmathlib.}
-proc runif(a2: cdouble; a3: cdouble): cdouble {.cdecl, importc: "runif",
+proc Rf_runif(a2: cdouble; a3: cdouble): cdouble {.cdecl, importc: "runif",
     dynlib: rmathlib.}
 
 proc dgamma(a2: cdouble; a3: cdouble; a4: cdouble; a5: cint): cdouble {.cdecl,
@@ -65,7 +65,7 @@ proc pbeta(a2: cdouble; a3: cdouble; a4: cdouble; a5: cint; a6: cint): cdouble {
     importc: "pbeta", dynlib: rmathlib.}
 proc qbeta(a2: cdouble; a3: cdouble; a4: cdouble; a5: cint; a6: cint): cdouble {.cdecl,
     importc: "qbeta", dynlib: rmathlib.}
-proc rbeta(a2: cdouble; a3: cdouble): cdouble {.cdecl, importc: "rbeta",
+proc Rf_rbeta(a2: cdouble; a3: cdouble): cdouble {.cdecl, importc: "rbeta",
     dynlib: rmathlib.}
 
 proc dlnorm(a2: cdouble; a3: cdouble; a4: cdouble; a5: cint): cdouble {.cdecl,
