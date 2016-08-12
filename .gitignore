@@ -4,3 +4,6 @@ nimcache/
 *.dll
 *.so
 test/test
+examples/Rmath.h
+examples/R_ext
+

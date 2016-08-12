@@ -10,7 +10,7 @@ srcDir        = "src"
 
 # Dependencies
 
-requires "nim >= 0.14.2", "nimbench", "math", "random"
+requires "nim >= 0.14.2", "nimbench"
 
 # Tasks
 
@@ -28,8 +28,17 @@ before install:
   else:
     const
       rmathlib = "libRmath-nim.so"
-  const libdir = "~/" & ".nimble/" & "lib/"
+  const libdir = "/Users/sdf22/" & ".nimble/" & "lib/"
   cpFile(thisDir() & "/" & "libRmath-nim/" & "src/" & rmathlib, libdir & rmathlib)
+  cpFile(thisDir() & "/" & "libRmath-nim/" & "src/" & rmathlib, thisDir() & "/examples/" & rmathlib)
+  cpFile(thisDir() & "/" & "libRmath-nim/" & "include/" & "Rmath.h", thisDir() & "/examples/" & "Rmath.h")
+  cpFile(thisDir() & "/" & "libRmath-nim/" & "include/" & "R_ext/" & "Arith.h", thisDir() & "/examples/R_ext/" & "Arith.h")
+  cpFile(thisDir() & "/" & "libRmath-nim/" & "include/" & "R_ext/" & "Boolean.h", thisDir() & "/examples/R_ext/" & "Boolean.h")
+  cpFile(thisDir() & "/" & "libRmath-nim/" & "include/" & "R_ext/" & "Error.h", thisDir() & "/examples/R_ext/" & "Error.h")
+  cpFile(thisDir() & "/" & "libRmath-nim/" & "include/" & "R_ext/" & "Print.h", thisDir() & "/examples/R_ext/" & "Print.h")
+  cpFile(thisDir() & "/" & "libRmath-nim/" & "include/" & "R_ext/" & "RS.h", thisDir() & "/examples/R_ext/" & "RS.h")
+  cpFile(thisDir() & "/" & "libRmath-nim/" & "include/" & "R_ext/" & "Random.h", thisDir() & "/examples/R_ext/" & "Random.h")
+  cpFile(thisDir() & "/" & "libRmath-nim/" & "include/" & "R_ext/" & "libextern.h", thisDir() & "/examples/R_ext/" & "libextern.h")
   rmDir("libRmath-nim")
 
 task tests, "Running tests":
