@@ -11,7 +11,7 @@ You will need to ensure that the shared library (libRmath-nim.dylib, libRmath-ni
 
 ## Installation
 
-`distributions` installs a shared library into `$HOME/.nimble/lib`; this needs to be created first, then added to the library search path. The package can then be installed using [nimble](https://github.com/nim-lang/nimble) from a local directory.
+`distributions` installs a shared library into `$HOME/.nimble/lib`; this needs to be added to the library search path. The package can be installed using [nimble](https://github.com/nim-lang/nimble) from a local directory.
 
 ```sh
 git clone http://github.com/sdwfrost/distributions.git
