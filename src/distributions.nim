@@ -63,6 +63,30 @@ proc rand*(d: Uniform): float64 =
   ## Random number from a normal distribution.
   result = runif(d.a, d.b)
 
+type Exponential* = ref object of ContinuousUnivariateDistribution
+  ## Exponential distribution.
+  s*: float64 ## `s` is the scale.
+
+proc pdf*(d: Exponential; x: float64): float64 =
+  ## Probability density of exponential distribution at `x`.
+  result = dexp(x, 1.0/d.s, false)
+
+proc logpdf*(d: Exponential; x: float64): float64 =
+  ## Log probability density of exponential distribution at `x`.
+  result = dexp(x, 1.0/d.s, true)
+
+proc cdf*(d: Exponential; q: float64): float64 =
+  ## Cumulative density of exponential distribution at `q`.
+  result = pexp(q, 1.0/d.s, true, false)
+
+proc quantile*(d: Exponential; p: float64): float64 =
+  ## Quantile of exponential distribution at `p`.
+  result = qexp(p, 1.0/d.s, true)
+
+proc rand*(d: Exponential): float64 =
+  ## Random number from an exponential distribution.
+  result = rexp(d.s)
+
 type Chisq* = ref object of ContinuousUnivariateDistribution
   ## Chi squared distribution.
   v*: int ## `v` is the degrees of freedom.
