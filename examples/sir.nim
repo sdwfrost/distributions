@@ -1,4 +1,5 @@
 import sequtils
+import random
 import math
 import rmath
 
@@ -16,7 +17,7 @@ proc sir(beta: float64; gamma: float64; tf: float64; S0: int64; I0: int64; R0: i
     var pf1 = beta*float64(S)*float64(I)
     var pf2 = gamma*float64(I)
     var pf = pf1 + pf2
-    var dt = rexp(pf)
+    var dt = rexp(1.0/pf)
     t = t + dt
     var v = unif_rand()
     if v < pf1/pf:
@@ -31,5 +32,7 @@ proc sir(beta: float64; gamma: float64; tf: float64; S0: int64; I0: int64; R0: i
     Ra.add(R)
   result = @[Sa,Ia,Ra]
 
-
-var s = sir(0.1/10000, 0.05, 1000.0, 9999, 1, 0)
+randomize()
+set_seed(random(10000),random(10000))
+for i in 1..1000:
+  var s = sir(0.1/10000, 0.05, 1000.0, 9999, 1, 0)
