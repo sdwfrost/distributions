@@ -37,11 +37,11 @@ proc dunif*(x: float64; min: float64 = 0.0; max: float64 = 1.0; log: bool = fals
   ## Density function for the uniform distribution between `min` and `max`.
   result = dunif(x.float64, min.float64, max.float64, log.cint).float64
 
-proc punif*(q: float64; min: float64 = 0.0; max: float64 = 1.0; lower_tail: bool = true; log_p: bool: false): float64 =
+proc punif*(q: float64; min: float64 = 0.0; max: float64 = 1.0; lower_tail: bool = true; log_p: bool = false): float64 =
   ## Distribution function for the uniform distribution between `min` and `max`.
   result = punif(q.cdouble, min.cdouble, max.cdouble, lower_tail.cint, log_p.cint).float64
 
-proc qunif*(p: float64; min: float64 = 0.0; max: float64 = 1.0; lower_tail: bool = true; log_p: bool: false): float64 =
+proc qunif*(p: float64; min: float64 = 0.0; max: float64 = 1.0; lower_tail: bool = true; log_p: bool = false): float64 =
   ## Quantile function for the uniform distribution between `min` and `max`.
   result = qunif(p.cdouble, min.cdouble, max.cdouble, lower_tail.cint, log_p.cint).float64
 
@@ -65,15 +65,15 @@ proc rgamma*(shape: float64; rate: float64 = 1.0): float64 =
   ## Random numbers for gamma distribution with shape `shape` and rate `rate`.
   result = Rf_rgamma(shape.cdouble, rate.cdouble).float64
 
-proc dbeta*(x: float64; shape1: float64; shape2: float64; log: bool): float64 =
+proc dbeta*(x: float64; shape1: float64; shape2: float64; log: bool = false): float64 =
   ## Density function for the Beta distribution with parameters `shape1` and `shape2`.
   result = dbeta(x.cdouble, shape1.cdouble, shape2.cdouble, log.cint).float64
 
-proc pbeta*(q: float64; shape1: float64; shape2: float64; lower_tail: bool; log_p: bool): float64 =
+proc pbeta*(q: float64; shape1: float64; shape2: float64; lower_tail: bool = true; log_p: bool = false): float64 =
   ## Distribution function for the Beta distribution with parameters `shape1` and `shape2`.
   result = pbeta(q.cdouble, shape1.cdouble, shape2.cdouble, lower_tail.cint, log_p.cint).float64
 
-proc qbeta(p: float64; shape1: float64; shape2: float64; lower_tail: bool; log_p: bool): float64 =
+proc qbeta(p: float64; shape1: float64; shape2: float64; lower_tail: bool = true; log_p: bool = false): float64 =
   ## Quantile function for the Beta distribution with parameters `shape1` and `shape2`.
   result = qbeta(p.float64, shape1.float64, shape2.float64, lower_tail.cint, log_p.cint).float64
 
@@ -81,15 +81,15 @@ proc rbeta(shape1: float64; shape2: float64): float64 =
   ## Random numbers for the Beta distribution with parameters `shape1` and `shape2`.
   result = Rf_rbeta(shape1.cdouble, shape2.cdouble).float64
 
-proc dlnorm(x: float64; meanlog: float64 = 0.0; sdlog: float64 = 1.0; log: bool): float64 =
+proc dlnorm(x: float64; meanlog: float64 = 0.0; sdlog: float64 = 1.0; log: bool = false): float64 =
   ## Density function for the log normal distribution with mean `meanlog` and standard deviation `sdlog`.
   result = dlnorm(x.cdouble, meanlog.cdouble, sdlog.cdouble, log.cint).float64
 
-proc plnorm(q: float64; meanlog: float64; sdlog: float64; lower_tail: bool; log_p: bool): float64 =
+proc plnorm(q: float64; meanlog: float64; sdlog: float64; lower_tail: bool = true; log_p: bool = false): float64 =
   ## Distribution function for the log normal distribution with mean `meanlog` and standard deviation `sdlog`.
   result = plnorm(q.cdouble, meanlog.cdouble, sdlog.cdouble, lower_tail.cint, log_p.cint).float64
 
-proc qlnorm(p: float64; meanlog: float64; sdlog: float64; lower_tail: bool; log_p: bool): float64 =
+proc qlnorm(p: float64; meanlog: float64; sdlog: float64; lower_tail: bool = true; log_p: bool = false): float64 =
   ## Quantile function for the log normal distribution with mean `meanlog` and standard deviation `sdlog`.
   result = qlnorm(p.cdouble, meanlog.cdouble, sdlog.cdouble, lower_tail.cint, log_p.cint).float64
 

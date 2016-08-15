@@ -74,7 +74,7 @@ proc plnorm(a2: cdouble; a3: cdouble; a4: cdouble; a5: cint; a6: cint): cdouble 
     importc: "plnorm", dynlib: rmathlib.}
 proc qlnorm(a2: cdouble; a3: cdouble; a4: cdouble; a5: cint; a6: cint): cdouble {.cdecl,
     importc: "qlnorm", dynlib: rmathlib.}
-proc rlnorm(a2: cdouble; a3: cdouble): cdouble {.cdecl, importc: "rlnorm",
+proc Rf_rlnorm(a2: cdouble; a3: cdouble): cdouble {.cdecl, importc: "rlnorm",
     dynlib: rmathlib.}
 
 proc dchisq(a2: cdouble; a3: cdouble; a4: cint): cdouble {.cdecl, importc: "dchisq",

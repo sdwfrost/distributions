@@ -2,7 +2,7 @@ import sequtils
 import math
 import rmath
 
-proc sir(beta: float64; gamma: float64; tf: float64; S0: int64; I0:int64; R0: int64) : seq[seq[int64]] =
+proc sir(beta: float64; gamma: float64; tf: float64; S0: int64; I0: int64; R0: int64) : seq[seq[int64]] =
   var
     t = 0.0
     S = S0
@@ -31,4 +31,5 @@ proc sir(beta: float64; gamma: float64; tf: float64; S0: int64; I0:int64; R0: in
     Ra.add(R)
   result = @[Sa,Ia,Ra]
 
-var res = sir(0.1/10000, 0.05, 1000.0, 9999, 1, 0)
+
+var s = sir(0.1/10000, 0.05, 1000.0, 9999, 1, 0)

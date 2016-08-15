@@ -38,6 +38,31 @@ proc rand*(d: Normal): float64 =
   ## Random number from a normal distribution.
   result = rnorm(d.mu, d.sig)
 
+type Uniform* = ref object of ContinuousUnivariateDistribution
+  ## Uniform distribution.
+  a*: float64 ## `a` is the lower bound.
+  b*: float64 ## `b` is the upper bound.
+
+proc pdf*(d: Uniform; x: float64): float64 =
+  ## Probability density of uniform distribution over [a, b] at x.
+  result = dunif(x, d.a, d.b, false)
+
+proc logpdf*(d: Uniform; x: float64): float64 =
+  ## Log probability density of uniform distribution over [a, b] at x.
+  result = dunif(x, d.a, d.b, true)
+
+proc cdf*(d: Uniform; q: float64): float64 =
+  ## Cumulative density of uniform distribution over [a, b] at q.
+  result = punif(q, d.a, d.b, true, false)
+
+proc quantile*(d: Uniform; p: float64): float64 =
+  ## Quantile of uniform distribution over [a, b] at `p`.
+  result = qnorm(p, d.a, d.b, true)
+
+proc rand*(d: Uniform): float64 =
+  ## Random number from a normal distribution.
+  result = runif(d.a, d.b)
+
 type Chisq* = ref object of ContinuousUnivariateDistribution
   ## Chi squared distribution.
   v*: int ## `v` is the degrees of freedom.
