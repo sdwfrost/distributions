@@ -106,12 +106,64 @@ proc pchisq*(q: float64; df: int; lower_tail: bool = true; log_p: bool = false):
   result = pchisq(q.cdouble, df.cdouble, lower_tail.cint, log_p.cint).float64
 
 proc qchisq*(p: float64, df: int; lower_tail: bool = true; log_p: bool = false): float64 =
-  ## Quantile function for the the Chi squared distribution with `df` degrees of freedom.
+  ## Quantile function for the Chi squared distribution with `df` degrees of freedom.
   result = qchisq(p.cdouble, df.cdouble, lower_tail.cint, log_p.cint).float64
 
 proc rchisq*(df: int): float64 =
-  ## Random number generation for the the Chi squared distribution with `df` degrees of freedom.
+  ## Random number generation for the Chi squared distribution with `df` degrees of freedom.
   result = rchisq(df.cdouble).float64
+
+proc dnchisq(x: float64; df: int; ncp: float64; log: bool = false): float64 =
+  ## Density function for the non-central Chi-squared distribution with `df` degrees of freedom
+  ## and non-centrality `ncp`.
+  result = dnchisq(x.cdouble, df.cdouble, ncp.cdouble; log.cint).float64
+
+proc pnchisq(q: float64; df: int; ncp: float64; lower_tail: bool = true; log_p: bool = false): float64 =
+  ## Density function for the non-central Chi-squared distribution with `df` degrees of freedom
+  ## and non-centrality `ncp`.
+  result = pnchisq(q.cdouble,df.cdouble,ncp.cdouble,lower_tail.cint,log_p.cint).float64
+
+proc qnchisq(p: float64; df: int; ncp: float64; lower_tail: bool = true; log_p: bool = false): float64 =
+  ## Quantile function for the non-central Chi-squared distribution with `df` degrees of freedom
+  ## and non-centrality `ncp`.
+  result = qnchisq(p.cdouble, df.cdouble, ncp.cdouble, lower_tail.cint, log_p.cint).float64
+
+proc rnchisq(df: int; ncp: float64): float64 =
+  ## Random number generation for the non-central Chi-squared distribution with `df` degrees of freedom
+  ## and non-centrality `ncp`.
+  result = rnchisq(df.cdouble, ncp.cdouble).float64
+
+proc df*(x: float64; df1: int; df2: int; log: bool = false): float64 =
+  ## Density function for the F distribution with degrees of freedom `df1` and `df2`.
+  result = df(x.cdouble, df1.cdouble, df2.cdouble, log.cint).float64
+
+proc pf*(q: float64; df1: int; df2: int; lower_tail: bool = true; log_p: bool = false): float64 =
+  ## Distribution function for the F distribution with degrees of freedom `df1` and `df2`.
+  result = pbeta(q.cdouble, df1.cdouble, df2.cdouble, lower_tail.cint, log_p.cint).float64
+
+proc qf*(p: float64; df1: int; df2: int; lower_tail: bool = true; log_p: bool = false): float64 =
+  ## Quantile function for the F distribution with degrees of freedom `df1` and `df2`.
+  result = qbeta(p.float64, df1.float64, df2.float64, lower_tail.cint, log_p.cint).float64
+
+proc rf*(df1: int; df2: int): float64 =
+  ## Random number generation for the F distribution with degrees of freedom `df1` and `df2`..
+  result = Rf_rf(df1.cdouble, df2.cdouble).float64
+
+proc dt*(x: float64; df: int; log: bool = false): float64 =
+  ## Density function for the t distribution with `df` degrees of freedom.
+  result = dt(x.cdouble, df.cdouble, log.cint).float64
+
+proc pt*(q: float64; df: int; lower_tail: bool = true; log_p: bool = false): float64 =
+  ## Distribution function for the t distribution with `df` degrees of freedom.
+  result = pt(q.cdouble, df.cdouble, lower_tail.cint, log_p.cint).float64
+
+proc qt*(p: float64, df: int; lower_tail: bool = true; log_p: bool = false): float64 =
+  ## Quantile function for the t distribution with `df` degrees of freedom.
+  result = qt(p.cdouble, df.cdouble, lower_tail.cint, log_p.cint).float64
+
+proc rt*(df: int): float64 =
+  ## Random number generation for the t distribution with `df` degrees of freedom.
+  result = rt(df.cdouble).float64
 
 proc dexp*(x: float64; rate: float64 = 1.0; log: bool = false): float64 =
   ## Density function for exponential distribution with rate `rate`.

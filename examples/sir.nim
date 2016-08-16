@@ -36,3 +36,5 @@ randomize()
 set_seed(random(10000),random(10000))
 for i in 1..1000:
   var s = sir(0.1/10000, 0.05, 1000.0, 9999, 1, 0)
+  echo s
+

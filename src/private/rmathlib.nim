@@ -100,7 +100,7 @@ proc pf(a2: cdouble; a3: cdouble; a4: cdouble; a5: cint; a6: cint): cdouble {.cd
     importc: "pf", dynlib: rmathlib.}
 proc qf(a2: cdouble; a3: cdouble; a4: cdouble; a5: cint; a6: cint): cdouble {.cdecl,
     importc: "qf", dynlib: rmathlib.}
-proc rf(a2: cdouble; a3: cdouble): cdouble {.cdecl, importc: "rf", dynlib: rmathlib.}
+proc Rf_rf(a2: cdouble; a3: cdouble): cdouble {.cdecl, importc: "rf", dynlib: rmathlib.}
 
 proc dt(a2: cdouble; a3: cdouble; a4: cint): cdouble {.cdecl, importc: "dt",
     dynlib: rmathlib.}
