@@ -130,7 +130,7 @@ proc pcauchy(a2: cdouble; a3: cdouble; a4: cdouble; a5: cint; a6: cint): cdouble
     importc: "pcauchy", dynlib: rmathlib.}
 proc qcauchy(a2: cdouble; a3: cdouble; a4: cdouble; a5: cint; a6: cint): cdouble {.cdecl,
     importc: "qcauchy", dynlib: rmathlib.}
-proc rcauchy(a2: cdouble; a3: cdouble): cdouble {.cdecl, importc: "rcauchy",
+proc Rf_rcauchy(a2: cdouble; a3: cdouble): cdouble {.cdecl, importc: "rcauchy",
     dynlib: rmathlib.}
 
 proc dexp(a2: cdouble; a3: cdouble; a4: cint): cdouble {.cdecl, importc: "dexp",
@@ -147,7 +147,7 @@ proc pgeom(a2: cdouble; a3: cdouble; a4: cint; a5: cint): cdouble {.cdecl,
     importc: "pgeom", dynlib: rmathlib.}
 proc qgeom(a2: cdouble; a3: cdouble; a4: cint; a5: cint): cdouble {.cdecl,
     importc: "qgeom", dynlib: rmathlib.}
-proc rgeom(a2: cdouble): cdouble {.cdecl, importc: "rgeom", dynlib: rmathlib.}
+proc Rf_rgeom(a2: cdouble): cdouble {.cdecl, importc: "rgeom", dynlib: rmathlib.}
 
 proc dhyper(a2: cdouble; a3: cdouble; a4: cdouble; a5: cdouble; a6: cint): cdouble {.cdecl,
     importc: "dhyper", dynlib: rmathlib.}
