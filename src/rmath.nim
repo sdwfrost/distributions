@@ -116,12 +116,12 @@ proc rchisq*(df: int): float64 =
 proc dnchisq*(x: float64; df: int; ncp: float64; log: bool = false): float64 =
   ## Density function for the non-central Chi-squared distribution with `df` degrees of freedom
   ## and non-centrality `ncp`.
-  result = dnchisq(x.cdouble, df.cdouble, ncp.cdouble; log.cint).float64
+  result = dnchisq(x.cdouble, df.cdouble, ncp.cdouble, log.cint).float64
 
 proc pnchisq*(q: float64; df: int; ncp: float64; lower_tail: bool = true; log_p: bool = false): float64 =
   ## Density function for the non-central Chi-squared distribution with `df` degrees of freedom
   ## and non-centrality `ncp`.
-  result = pnchisq(q.cdouble,df.cdouble,ncp.cdouble,lower_tail.cint,log_p.cint).float64
+  result = pnchisq(q.cdouble, df.cdouble, ncp.cdouble, lower_tail.cint, log_p.cint).float64
 
 proc qnchisq*(p: float64; df: int; ncp: float64; lower_tail: bool = true; log_p: bool = false): float64 =
   ## Quantile function for the non-central Chi-squared distribution with `df` degrees of freedom
@@ -173,7 +173,7 @@ proc pbinom*(q: float64; size: int; prob: float64; lower_tail: bool = true; log_
   ## Distribution function for the binomial distribution with parameters `size` and `prob`.
   result = pbinom(q.cdouble, size.cdouble, prob.cdouble, lower_tail.cint, log_p.cint).float64
 
-proc qbinom*(p: float64; shape1: float64; shape2: float64; lower_tail: bool = true; log_p: bool = false): float64 =
+proc qbinom*(p: float64; size: float64; prob: float64; lower_tail: bool = true; log_p: bool = false): float64 =
   ## Quantile function for the binomial distribution with parameters `size` and `prob`.
   result = qbinom(p.float64, size.float64, prob.float64, lower_tail.cint, log_p.cint).float64
 
@@ -186,7 +186,7 @@ proc dcauchy*(x: float64; location: float64; scale: float64; log: bool = false):
   ## location parameter `location` and scale parameter `scale`.
   result = dcauchy(x.cdouble, location.cdouble, scale.cdouble, log.cint).float64
 
-proc pcauchy*(q: float64; shape1: float64; scale: float64; lower_tail: bool = true; log_p: bool = false): float64 =
+proc pcauchy*(q: float64; location: float64; scale: float64; lower_tail: bool = true; log_p: bool = false): float64 =
   ## Distribution function for the Cauchy distribution with
   ## location parameter `location` and scale parameter `scale`.
   result = pcauchy(q.cdouble, location.cdouble, scale.cdouble, lower_tail.cint, log_p.cint).float64
@@ -196,7 +196,7 @@ proc qcauchy*(p: float64; location: float64; scale: float64; lower_tail: bool = 
   ## location parameter `location` and scale parameter `scale`.
   result = qcauchy(p.float64, location.float64, scale.float64, lower_tail.cint, log_p.cint).float64
 
-proc rcauchy*(shape1: float64; shape2: float64): float64 =
+proc rcauchy*(location: float64; scale: float64): float64 =
   ## Random number generation for the Cauchy distribution with
   ## location parameter `location` and scale parameter `scale`.
   result = Rf_rcauchy(location.cdouble, scale.cdouble).float64
