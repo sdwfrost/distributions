@@ -232,3 +232,35 @@ proc qgeom*(p: float64; prob: float64; lower_tail: bool = true; log_p: bool = fa
 proc rgeom*(prob: float64): float64 =
   ## Random numbers for geometric distribution with paramer `prob`.
   result = Rf_rgeom(prob.cdouble).float64
+
+proc dhyper*(x: float64; m: int; n: int; k: int; log: bool = false): float64 =
+  ## Density function for the hypergeometric distribution with parameters `m`, `n`, and `k`.
+  result = dhyper(x.cdouble, m.cdouble, n.cdouble, k.cdouble, log.cint).float64
+
+proc phyper*(q: float64; m: int; n: int; k: int; lower_tail: bool = true; log_p: bool = false): float64 =
+  ## Distribution function for the hypergeometric distribution with parameters `m`, `n`, and `k`.
+  result = phyper(q.cdouble, m.cdouble, n.cdouble, k.cdouble, lower_tail.cint, log_p.cint).float64
+
+proc qhyper*(p: float64; m: int; n: int; k: int;lower_tail: bool = true; log_p: bool = false): float64 =
+  ## Quantile function for the hypergeometric distribution with parameters `m`, `n`, and `k`.
+  result = qhyper(p.float64, m.cdouble, n.cdouble, k.cdouble, lower_tail.cint, log_p.cint).float64
+
+proc rhyper*(m: int; n: int; k: int;): float64 =
+  ## Random numbers for the hypergeometric distribution with parameters `m`, `n`, and `k`.
+  result = rhyper(m.cdouble, n.cdouble, k.cdouble).float64
+
+proc dnbinom*(x: float64; size: int; prob: float64; log: bool = false): float64 =
+  ## Density function for the negative binomial distribution with parameters `size` and `prob`.
+  result = dnbinom(x.cdouble, size.cdouble, prob.cdouble, log.cint).float64
+
+proc pnbinom*(q: float64; size: int; prob: float64; lower_tail: bool = true; log_p: bool = false): float64 =
+  ## Distribution function for the negative binomial distribution with parameters `size` and `prob`.
+  result = pnbinom(q.cdouble, size.cdouble, prob.cdouble, lower_tail.cint, log_p.cint).float64
+
+proc qnbinom*(p: float64; size: float64; prob: float64; lower_tail: bool = true; log_p: bool = false): float64 =
+  ## Quantile function for the negative binomial distribution with parameters `size` and `prob`.
+  result = qnbinom(p.float64, size.float64, prob.float64, lower_tail.cint, log_p.cint).float64
+
+proc rnbinom*(size: int; prob: float64): float64 =
+  ## Random numbers for the negative binomial distribution with parameters `size` and `prob`.
+  result = rnbinom(size.cdouble, prob.cdouble).float64
