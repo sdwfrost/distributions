@@ -18,6 +18,13 @@ type Normal* = ref object of ContinuousUnivariateDistribution
   mu*: float64 ## `mu` is the mean.
   sig*: float64 ## `sigma` is the standard deviation.
 
+var normal_distribution = Normal(mu: 0.0, sig: 1.0)
+
+proc normal*(mu: float64 = 0.0; sig: float64 = 1.0): Normal =
+  normal_distribution.mu = mu
+  normal_distribution.sig = sig
+  result = normal_distribution
+
 proc pdf*(d: Normal; x: float64): float64 =
   ## Probability density of Normal distribution at `x`.
   result = dnorm(x, d.mu, d.sig, false)
@@ -42,6 +49,13 @@ type Uniform* = ref object of ContinuousUnivariateDistribution
   ## Uniform distribution.
   a*: float64 ## `a` is the lower bound.
   b*: float64 ## `b` is the upper bound.
+
+var uniform_distribution = Uniform(a: 0.0, b: 1.0)
+
+proc uniform*(a: float64 = 0.0; b: float64 = 1.0): Uniform =
+  uniform_distribution.a = a
+  uniform_distribution.b = b
+  return uniform_distribution
 
 proc pdf*(d: Uniform; x: float64): float64 =
   ## Probability density of uniform distribution over [a, b] at x.

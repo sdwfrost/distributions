@@ -14,7 +14,7 @@ requires "nim >= 0.14.2"
 
 # Tasks
 
-before install:
+task deps, "Installing dependencies":
   exec "nim e install_librmath.nims"
 
 
