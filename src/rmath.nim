@@ -21,7 +21,7 @@ proc dnorm*(x: float64; mean: float64 = 0.0; sd: float64 = 1.0; log: bool = fals
   ## Density function for the normal distribution with mean equal to `mean` and standard deviation equal to `sd`.
   result = dnorm(x.cdouble, mean.cdouble, sd.cdouble, log.cint).float64
 
-proc pnorm*(q: float64; mean: float64 = 0.0; sd: float64 = 1.0; lower_tail: bool = true;log_p: bool = false): float64 =
+proc pnorm*(q: float64; mean: float64 = 0.0; sd: float64 = 1.0; lower_tail: bool = true; log_p: bool = false): float64 =
   ## Distribution function for the normal distribution with mean equal to `mean` and standard deviation equal to `sd`.
   result = pnorm(q.cdouble, mean.cdouble, sd.cdouble, lower_tail.cint, log_p.cint).float64
 
@@ -264,3 +264,59 @@ proc qnbinom*(p: float64; size: float64; prob: float64; lower_tail: bool = true;
 proc rnbinom*(size: int; prob: float64): float64 =
   ## Random numbers for the negative binomial distribution with parameters `size` and `prob`.
   result = rnbinom(size.cdouble, prob.cdouble).float64
+
+proc dpois*(x: float64; lambd: float64; log: bool = false): int =
+  ## Density function for Poisson distribution with parameter `lambd`.
+  result = dpois(x.cdouble, lambd.cdouble, log.cint).int
+
+proc ppois*(q: float64; lambd: float64; lower_tail: bool = true; log_p: bool = false): int =
+  ## Distribution function for Poisson distribution with parameter `lambd`.
+  result = ppois(q.cdouble, lambd.cdouble, lower_tail.cint, log_p.cint).int
+
+proc qpois*(p: float64; lambd: float64; lower_tail: bool = true; log_p: bool = false): int =
+  ## Quantile function for Poisson distribution with parameter `lambd`.
+  result = qpois(p.cdouble, lambd.cdouble, lower_tail.cint, log_p.cint).int
+
+proc rpois*(lambd: float64): int =
+  ## Random numbers for Poisson distribution with parameter `lambd`.
+  result = Rf_rpois(lambd.cdouble).int
+
+proc dweibull*(x: float64; shape: float64; scale: float64; log: bool = false): float64 =
+  ## Density function for the Weibull distribution with
+  ## location parameter `shape` and scale parameter `scale`.
+  result = dweibull(x.cdouble, shape.cdouble, scale.cdouble, log.cint).float64
+
+proc pweibull*(q: float64; shape: float64; scale: float64; lower_tail: bool = true; log_p: bool = false): float64 =
+  ## Distribution function for the Weibull distribution with
+  ## location parameter `shape` and scale parameter `scale`.
+  result = pweibull(q.cdouble, shape.cdouble, scale.cdouble, lower_tail.cint, log_p.cint).float64
+
+proc qweibull*(p: float64; shape: float64; scale: float64; lower_tail: bool = true; log_p: bool = false): float64 =
+  ## Quantile function for the Weibull distribution with
+  ## location parameter `shape` and scale parameter `scale`.
+  result = qweibull(p.float64, shape.float64, scale.float64, lower_tail.cint, log_p.cint).float64
+
+proc rweibull*(location: float64; scale: float64): float64 =
+  ## Random number generation for the Weibull distribution with
+  ## location parameter `shape` and scale parameter `scale`.
+  result = Rf_rweibull(shape.cdouble, scale.cdouble).float64
+
+proc dlogis*(x: float64; location: float64; scale: float64; log: bool = false): float64 =
+  ## Density function for the logistic distribution with
+  ## location parameter `location` and scale parameter `scale`.
+  result = dlogis(x.cdouble, location.cdouble, scale.cdouble, log.cint).float64
+
+proc plogis*(q: float64; location: float64; scale: float64; lower_tail: bool = true; log_p: bool = false): float64 =
+  ## Distribution function for the logistic distribution with
+  ## location parameter `location` and scale parameter `scale`.
+  result = plogis(q.cdouble, location.cdouble, scale.cdouble, lower_tail.cint, log_p.cint).float64
+
+proc qlogis*(p: float64; location: float64; scale: float64; lower_tail: bool = true; log_p: bool = false): float64 =
+  ## Quantile function for the logistic distribution with
+  ## location parameter `location` and scale parameter `scale`.
+  result = qlogis(p.float64, location.float64, scale.float64, lower_tail.cint, log_p.cint).float64
+
+proc rlogis*(location: float64; scale: float64): float64 =
+  ## Random number generation for the logistic distribution with
+  ## location parameter `location` and scale parameter `scale`.
+  result = Rf_rlogis(location.cdouble, scale.cdouble).float64

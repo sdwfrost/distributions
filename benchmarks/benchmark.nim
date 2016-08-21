@@ -1,4 +1,5 @@
 import nimbench
+import random
 import rmath
 import distributions
 
@@ -25,6 +26,12 @@ bench(normal, m):
   var x = 0.0
   for i in 1..m:
     var x = rand(normal(0.0,1.0))
+  doNotOptimizeAway(x)
+
+bench(rand_normal, m):
+  var x = 0.0
+  for i in 1..m:
+    var x = qnorm(random(1.0),0.0,1.0)
   doNotOptimizeAway(x)
 
 bench(unif_rand, m):

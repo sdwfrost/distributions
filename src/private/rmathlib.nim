@@ -183,7 +183,7 @@ proc ppois(a2: cdouble; a3: cdouble; a4: cint; a5: cint): cdouble {.cdecl,
     importc: "ppois", dynlib: rmathlib.}
 proc qpois(a2: cdouble; a3: cdouble; a4: cint; a5: cint): cdouble {.cdecl,
     importc: "qpois", dynlib: rmathlib.}
-proc rpois(a2: cdouble): cdouble {.cdecl, importc: "rpois", dynlib: rmathlib.}
+proc Rf_rpois(a2: cdouble): cdouble {.cdecl, importc: "rpois", dynlib: rmathlib.}
 
 proc dweibull(a2: cdouble; a3: cdouble; a4: cdouble; a5: cint): cdouble {.cdecl,
     importc: "dweibull", dynlib: rmathlib.}
@@ -191,7 +191,7 @@ proc pweibull(a2: cdouble; a3: cdouble; a4: cdouble; a5: cint; a6: cint): cdoubl
     importc: "pweibull", dynlib: rmathlib.}
 proc qweibull(a2: cdouble; a3: cdouble; a4: cdouble; a5: cint; a6: cint): cdouble {.cdecl,
     importc: "qweibull", dynlib: rmathlib.}
-proc rweibull(a2: cdouble; a3: cdouble): cdouble {.cdecl, importc: "rweibull",
+proc Rf_rweibull(a2: cdouble; a3: cdouble): cdouble {.cdecl, importc: "rweibull",
     dynlib: rmathlib.}
 
 proc dlogis(a2: cdouble; a3: cdouble; a4: cdouble; a5: cint): cdouble {.cdecl,
@@ -200,7 +200,7 @@ proc plogis(a2: cdouble; a3: cdouble; a4: cdouble; a5: cint; a6: cint): cdouble 
     importc: "plogis", dynlib: rmathlib.}
 proc qlogis(a2: cdouble; a3: cdouble; a4: cdouble; a5: cint; a6: cint): cdouble {.cdecl,
     importc: "qlogis", dynlib: rmathlib.}
-proc rlogis(a2: cdouble; a3: cdouble): cdouble {.cdecl, importc: "rlogis",
+proc Rf_rlogis(a2: cdouble; a3: cdouble): cdouble {.cdecl, importc: "rlogis",
     dynlib: rmathlib.}
 
 proc dnbeta(a2: cdouble; a3: cdouble; a4: cdouble; a5: cdouble; a6: cint): cdouble {.cdecl,
