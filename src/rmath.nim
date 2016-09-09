@@ -1,5 +1,8 @@
 include
-  private/rmathlib
+  private/rmathlib,
+  math
+
+# Dummy for math
 
 proc set_seed*(a2: int; a3: int) =
   ## Set random number seed.
@@ -296,7 +299,7 @@ proc qweibull*(p: float64; shape: float64; scale: float64; lower_tail: bool = tr
   ## location parameter `shape` and scale parameter `scale`.
   result = qweibull(p.float64, shape.float64, scale.float64, lower_tail.cint, log_p.cint).float64
 
-proc rweibull*(location: float64; scale: float64): float64 =
+proc rweibull*(shape: float64; scale: float64): float64 =
   ## Random number generation for the Weibull distribution with
   ## location parameter `shape` and scale parameter `scale`.
   result = Rf_rweibull(shape.cdouble, scale.cdouble).float64
@@ -320,3 +323,4 @@ proc rlogis*(location: float64; scale: float64): float64 =
   ## Random number generation for the logistic distribution with
   ## location parameter `location` and scale parameter `scale`.
   result = Rf_rlogis(location.cdouble, scale.cdouble).float64
+

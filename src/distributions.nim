@@ -77,33 +77,73 @@ proc rand*(d: Uniform): float64 =
   ## Random number from a normal distribution.
   result = runif(d.a, d.b)
 
+type Gamma* = ref object of ContinuousUnivariateDistribution
+  ## Normal distribution.
+  shape*: float64 ## `shape` is the shape parameter.
+  rate*: float64 ## `rate` is the rate parameter.
+
+var gamma_distribution = Gamma(shape: 1.0, rate: 1.0)
+
+proc gamma*(shape: float64; rate: float64 = 1.0): Gamma =
+  gamma_distribution.shape = shape
+  gamma_distribution.rate = rate
+  result = gamma_distribution
+
+proc pdf*(d: Gamma; x: float64): float64 =
+  ## Probability density of Gamma distribution at `x`.
+  result = dgamma(x, d.shape, d.rate, false)
+
+proc logpdf*(d: Gamma; x: float64): float64 =
+  ## Log probability density of Gamma distribution at `x`.
+  result = dgamma(x, d.shape, d.rate, true)
+
+proc cdf*(d: Gamma; q: float64): float64 =
+  ## Cumulative density of Gamma distribution at `q`.
+  result = pgamma(q, d.shape, d.rate, true, false)
+
+proc quantile*(d: Gamma; p: float64): float64 =
+  ## Quantile of Gamma distribution at `p`.
+  result = qgamma(p, d.shape, d.rate, true)
+
+proc rand*(d: Gamma): float64 =
+  ## Random number from a Gamma distribution.
+  result = rgamma(d.shape, d.rate)
+
 type Exponential* = ref object of ContinuousUnivariateDistribution
   ## Exponential distribution.
-  s*: float64 ## `s` is the scale.
+  rate*: float64 ## `rate` is the rate.
+
+var exponential_distribution = Exponential(rate: 1.0)
+
+proc exponential*(rate: float64 = 1.0): Exponential =
+  exponential_distribution.rate = rate
+  return exponential_distribution
 
 proc pdf*(d: Exponential; x: float64): float64 =
   ## Probability density of exponential distribution at `x`.
-  result = dexp(x, 1.0/d.s, false)
+  result = dexp(x, d.rate, false)
 
 proc logpdf*(d: Exponential; x: float64): float64 =
   ## Log probability density of exponential distribution at `x`.
-  result = dexp(x, 1.0/d.s, true)
+  result = dexp(x, d.rate, true)
 
 proc cdf*(d: Exponential; q: float64): float64 =
   ## Cumulative density of exponential distribution at `q`.
-  result = pexp(q, 1.0/d.s, true, false)
+  result = pexp(q, d.rate, true, false)
 
 proc quantile*(d: Exponential; p: float64): float64 =
   ## Quantile of exponential distribution at `p`.
-  result = qexp(p, 1.0/d.s, true)
+  result = qexp(p, d.rate, true)
 
 proc rand*(d: Exponential): float64 =
   ## Random number from an exponential distribution.
-  result = rexp(d.s)
+  result = rexp(d.rate)
 
 type Chisq* = ref object of ContinuousUnivariateDistribution
   ## Chi squared distribution.
   v*: int ## `v` is the degrees of freedom.
+
+var chisq_distribution = Chisq(v: 1)
 
 proc pdf*(d: Chisq; x: float64): float64 =
   ## Probability density of Chi squared distribution at `x`.
